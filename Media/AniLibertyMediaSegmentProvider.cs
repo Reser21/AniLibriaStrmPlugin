@@ -56,7 +56,7 @@ public sealed class AniLibertyMediaSegmentProvider : IMediaSegmentProvider
             if (entry?.Segments == null || entry.Segments.Length == 0)
                 return Array.Empty<MediaSegmentDto>();
 
-            return FilterExistingSegments(request, BuildSegments(request.ItemId, entry.Segments));
+            return BuildSegments(request.ItemId, entry.Segments);
         }
         catch (Exception ex) when (!cancellationToken.IsCancellationRequested)
         {
